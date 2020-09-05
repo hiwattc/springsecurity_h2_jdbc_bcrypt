@@ -16,6 +16,10 @@ CREATE TABLE AUTHORITIES (
     FOREIGN KEY (USERNAME) REFERENCES USERS(USERNAME)
 );
 
+create table persistent_logins (username varchar(64) not null,
+                                    series varchar(64) primary key,
+                                    token varchar(64) not null,
+                                    last_used timestamp not null);
 /*
 INSERT INTO USERS (USERNAME, PASSWORD,ENABLED) VALUES
    ('admin', '{noop}1234',true),
